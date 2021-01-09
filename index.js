@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors')
+const cors = require('cors');
+const BaseError = require('./errors/base');
 
 const app = express();
+
+const usersController = require('./controllers/users');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -12,6 +15,17 @@ app.use(cors({
 	preflightContinue: false,
 	optionsSuccessStatus: 204
 }));
+
+app.use(usersController);
+
+app.use((err, req, res, next) => {
+	if (err instanceof BaseError) {
+		res.status(err.status).json({ message: err.message });
+	} else {
+		res.status(500).json({ message: 'Internal Server Error' });
+	}
+	next();
+});
 
 app.listen(8000);
 
