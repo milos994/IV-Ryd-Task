@@ -3,7 +3,7 @@
 		postgresql: {
 			host: 'localhost',
 			port: 5432,
-			user: 'milosnesovanovic',
+			user: 'milos.nesovanovic',
 			password: '',
 			database: 'ryd',
 		},

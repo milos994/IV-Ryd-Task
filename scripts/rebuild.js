@@ -12,7 +12,7 @@ const sequelize = require('../databases/postgresql');
 		`);
 
 		// This drops all tables and recreates them. Only use once
-		// await models.sequelize.sync({ force: true });
+		await models.sequelize.sync({ force: true });
 
 		process.exit(0);
 	} catch (err) {
