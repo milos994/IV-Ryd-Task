@@ -44,13 +44,13 @@ GET /users
 ```json
 [
 	{
-        "id": "7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
-        "email": "m.nesovanovic@hotmail.rs",
-        "name": "Milos Nesovanovic",
-        "createdAt": "2021-01-10T19:54:46.328Z",
-        "updatedAt": "2021-01-10T19:54:46.328Z",
-        "deletedAt": null
-    },
+		"id": "7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
+		"email": "m.nesovanovic@hotmail.rs",
+		"name": "Milos Nesovanovic",
+		"createdAt": "2021-01-10T19:54:46.328Z",
+		"updatedAt": "2021-01-10T19:54:46.328Z",
+		"deletedAt": null
+	},
 ]
 ```
 
