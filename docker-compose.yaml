@@ -15,6 +15,7 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
-    entrypoint: ["/bin/sh", "./entrypoint.sh"]
     links:
       - postgres
+    environment:
+      NODE_ENV: development

@@ -14,4 +14,5 @@ COPY . .
 
 EXPOSE 8000
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+RUN chmod 755 entrypoint.sh
+CMD ["/bin/sh", "entrypoint.sh" ]
