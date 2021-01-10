@@ -4,7 +4,7 @@
   "description": "Tech task for Ryd.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "mocha tests --timeout 30000 --recursive --exit",
     "rebuild": "node ./scripts/rebuild",
     "migrations": "./node_modules/.bin/sequelize db:migrate",

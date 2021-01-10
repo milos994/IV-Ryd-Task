@@ -1,0 +1,20 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:11-alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ryd
+      POSTGRES_USER: milos.nesovanovic
+      POSTGRES_HOST_AUTH_METHOD: trust
+  server:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    entrypoint: ["/bin/sh", "./entrypoint.sh"]
+    links:
+      - postgres
