@@ -52,6 +52,27 @@ Router.get('/users/:userId/issues', async (req, res, next) => {
 	}
 });
 
+Router.get('/agents/:agentId/issues', async (req, res, next) => {
+	try {
+		const {
+			params: {
+				agentId,
+			},
+		} = req;
+
+		if (!validate(agentId)) {
+			throw new BadRequestError('AgentId must be a valid uuid.')
+		}
+
+		const agent = await AgentService.findById(agentId);
+		const issues = await IssueService.listAllAgentIssues(agent.id)
+
+		res.send(issues);
+	} catch (err) {
+		return next(err);
+	}
+});
+
 Router.patch('/agents/:agentId/issues/:issueId', async (req, res, next) => {
 	try {
 		const {
