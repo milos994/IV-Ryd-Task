@@ -182,3 +182,92 @@ POST /agents/sign-up
 	"deletedAt": null
 }
 ```
+### Issue Routes:
+
+```http
+POST /users/:userId/issues
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `userId` | `string` | *Required*. Unique user id. |
+| `text` | `string` | *Required*. Issue text. |
+##### Response:
+```json
+{
+    "id": "f5485409-d6a1-4f23-800f-143bdaa25f26",
+    "userId": "7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
+    "text": "issue text",
+    "agentId": null,
+    "status": "new",
+    "updatedAt": "2021-01-10T22:07:50.183Z",
+    "createdAt": "2021-01-10T22:07:50.183Z",
+    "deletedAt": null
+}
+
+```
+
+```http
+GET /users/:userId/issues
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `userId` | `string` | *Required*. Unique user id. |
+##### Response:
+```json
+[
+	{
+		"id": "f5485409-d6a1-4f23-800f-143bdaa25f26",
+		"userId": "7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
+		"text": "issue text",
+		"agentId": null,
+		"status": "new",
+		"updatedAt": "2021-01-10T22:07:50.183Z",
+		"createdAt": "2021-01-10T22:07:50.183Z",
+		"deletedAt": null
+	}
+]
+
+```
+
+```http
+GET /agents/:agentId/issues
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `agentId` | `string` | *Required*. Unique agent id. |
+##### Response:
+```json
+[
+	{
+		"id": "f5485409-d6a1-4f23-800f-143bdaa25f26",
+		"userId": "7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
+		"text": "issue text",
+		"agentId": "76944b4b-da2f-478b-8629-c618e1dd33aa",
+		"status": "done",
+		"updatedAt": "2021-01-10T22:07:50.183Z",
+		"createdAt": "2021-01-10T22:07:50.183Z",
+		"deletedAt": null
+	}
+]
+```
+
+```http
+PATCH /agents/:agentId/issues/:issueId
+```
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `agentId` | `string` | *Required*. Unique agent id. |
+| `issueId` | `string` | *Required*. Unique issue id. |
+##### Response:
+```json
+{
+	"id": "f5485409-d6a1-4f23-800f-143bdaa25f26",
+	"userId": "7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
+	"text": "issue text",
+	"agentId": "76944b4b-da2f-478b-8629-c618e1dd33aa",
+	"status": "done",
+	"updatedAt": "2021-01-10T22:07:50.183Z",
+	"createdAt": "2021-01-10T22:07:50.183Z",
+	"deletedAt": null
+}
+```

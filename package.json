@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha tests --timeout 30000 --recursive --exit",
+    "test": "yarn rebuild && yarn migrations && yarn seeders && mocha tests --timeout 30000 --recursive --exit",
     "rebuild": "node ./scripts/rebuild",
     "migrations": "./node_modules/.bin/sequelize db:migrate",
     "seeders": "./node_modules/.bin/sequelize db:seed:all",

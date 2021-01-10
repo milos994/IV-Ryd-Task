@@ -208,7 +208,7 @@
 				{
 					"name": "Close Agent Issue",
 					"request": {
-						"method": "POST",
+						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -220,15 +220,16 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8000/users/7d7b95a5-0e3e-4523-9ca9-0863cb59a89d/issues",
+							"raw": "localhost:8000/agents/76944b4b-da2f-478b-8629-c618e1dd33aa/issues/88391a77-3554-4997-a183-f96ca4b2897e",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"users",
-								"7d7b95a5-0e3e-4523-9ca9-0863cb59a89d",
-								"issues"
+								"agents",
+								"76944b4b-da2f-478b-8629-c618e1dd33aa",
+								"issues",
+								"88391a77-3554-4997-a183-f96ca4b2897e"
 							]
 						}
 					},

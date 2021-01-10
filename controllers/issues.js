@@ -22,6 +22,10 @@ Router.post('/users/:userId/issues', async (req, res, next) => {
 			throw new BadRequestError('UserId must be a valid uuid.')
 		}
 
+		if (!text) {
+			throw new BadRequestError('Text is required.')
+		}
+
 		const user = await UserService.findById(userId);
 		const issue = await IssueService.create(userId, text)
 
