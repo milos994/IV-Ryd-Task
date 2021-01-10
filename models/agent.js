@@ -11,6 +11,10 @@ const Agent = sequelize.define('agent', {
 		type: Sequelize.STRING,
 		allowNull: false,
 	},
+	isBusy: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false,
+	}
 });
 
 module.exports = Agent;

@@ -6,6 +6,7 @@ const BaseError = require('./errors/base');
 const app = express();
 
 const usersController = require('./controllers/users');
+const issuesController = require('./controllers/issues');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -17,6 +18,7 @@ app.use(cors({
 }));
 
 app.use(usersController);
+app.use(issuesController);
 
 app.use((err, req, res, next) => {
 	if (err instanceof BaseError) {
