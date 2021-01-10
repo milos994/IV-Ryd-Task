@@ -3,6 +3,8 @@ const { v4: uuid, validate } = require('uuid');
 
 const IssueService = require('../services/issue');
 const UserService = require('../services/user');
+const AgentService = require('../services/agent');
+
 const BadRequestError = require('../errors/badRequest');
 
 Router.post('/users/:userId/issues', async (req, res, next) => {
@@ -45,6 +47,35 @@ Router.get('/users/:userId/issues', async (req, res, next) => {
 		const issues = await IssueService.listAllUserIssues(user.id)
 
 		res.send(issues);
+	} catch (err) {
+		return next(err);
+	}
+});
+
+Router.patch('/agents/:agentId/issues/:issueId', async (req, res, next) => {
+	try {
+		const {
+			params: {
+				agentId,
+				issueId,
+			},
+		} = req;
+
+		if (!validate(agentId)) {
+			throw new BadRequestError('AgentId must be a valid uuid.')
+		}
+
+		if (!validate(issueId)) {
+			throw new BadRequestError('IssueId must be a valid uuid.')
+		}
+
+		const agent = await AgentService.findById(agentId);
+		const issue = await IssueService.getAgentIssue(agentId, issueId)
+
+		const updatedIssue = await IssueService.closeIssue(agent, issue)
+		await IssueService.assignNewIssueToAgent(agent);
+
+		res.send(updatedIssue);
 	} catch (err) {
 		return next(err);
 	}

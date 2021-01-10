@@ -1,4 +1,5 @@
-const UserModel = require('../models/user');
+const { User: UserModel } = require('../models');
+
 const NotFoundError = require('../errors/notFound');
 const ForbiddenError = require('../errors/forbidden');
 
