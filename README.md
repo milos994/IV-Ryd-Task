@@ -30,7 +30,7 @@ $ docker-compose run --rm server yarn run test
 ---
 
 ## Postman Collection
-You can find exported postman collection on the following [link](./IV-Ryd.postman_collection.json)
+You can find exported postman collection on the following [link](./IV-Ryd.postman_collection.json). If you want to test API, download file and import in your postman. :)
 
 ---
 ## API Docs
@@ -120,3 +120,65 @@ PATCH /users/:userId
 }
 ```
 ---
+
+### Agent Routes:
+
+```http
+GET /agents
+```
+##### Response:
+```json
+[
+	{
+        "id": "76944b4b-da2f-478b-8629-c618e1dd33aa",
+        "email": "agent1@test.com",
+        "isBusy": false,
+        "createdAt": "2021-01-10T21:35:19.338Z",
+        "updatedAt": "2021-01-10T21:35:19.338Z",
+        "deletedAt": null
+    },
+]
+```
+
+---
+
+```http
+GET /agents/:agentId
+```
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `agentId` | `string` | *Required*. Unique agent id. |
+
+##### Response:
+```json
+{
+	"id": "76944b4b-da2f-478b-8629-c618e1dd33aa",
+	"email": "agent1@test.com",
+	"isBusy": false,
+	"createdAt": "2021-01-10T21:35:19.338Z",
+	"updatedAt": "2021-01-10T21:35:19.338Z",
+	"deletedAt": null
+}
+```
+---
+
+```http
+POST /agents/sign-up
+```
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `email` | `string` | *Required*. User email. |
+
+##### Response:
+```json
+{
+	"id": "76944b4b-da2f-478b-8629-c618e1dd33aa",
+	"email": "agent1@test.com",
+	"isBusy": false,
+	"createdAt": "2021-01-10T21:35:19.338Z",
+	"updatedAt": "2021-01-10T21:35:19.338Z",
+	"deletedAt": null
+}
+```

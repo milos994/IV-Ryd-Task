@@ -10,6 +10,7 @@ const invalidUUID = 'AAA';
 const randomUUID = '78673c12-e43a-4934-a647-e1ef3d3d7d36';
 
 const randomEmail = `user${Math.floor(Math.random() * 1000000)}@test.com`;
+const randomName = `name${Math.floor(Math.random() * 1000000)}`;
 
 describe('Tests for user routes', () => {
 	describe('Get Users', async () => {
@@ -130,17 +131,17 @@ describe('Tests for user routes', () => {
 		});
 
 		it('PATCH /users/:userId - Should update user name', async () => {
-			const newName = 'Milos 7';
+			const userId = '9b0ebcb4-88f7-4218-b058-e2c07434fcf1';
 			const { body: response } = await request
-				.patch(`/users/${testData.userId}`)
+				.patch(`/users/${userId}`)
 				.send({
-					name: newName,
+					name: randomName,
 				})
 				.expect(200);
 			expect(response).to.be.an('Object');
 
-			expect(response.id).to.equal(testData.userId);
-			expect(response.name).to.equal(newName);
+			expect(response.id).to.equal(userId);
+			expect(response.name).to.equal(randomName);
 		});
 	})
 });
