@@ -130,13 +130,13 @@ GET /agents
 ```json
 [
 	{
-        "id": "76944b4b-da2f-478b-8629-c618e1dd33aa",
-        "email": "agent1@test.com",
-        "isBusy": false,
-        "createdAt": "2021-01-10T21:35:19.338Z",
-        "updatedAt": "2021-01-10T21:35:19.338Z",
-        "deletedAt": null
-    },
+		"id": "76944b4b-da2f-478b-8629-c618e1dd33aa",
+		"email": "agent1@test.com",
+		"isBusy": false,
+		"createdAt": "2021-01-10T21:35:19.338Z",
+		"updatedAt": "2021-01-10T21:35:19.338Z",
+		"deletedAt": null
+	},
 ]
 ```
 
