@@ -1,6 +1,6 @@
 ## About Project
 
-An application used by Ryd engineers to check my knowledge while creating some issues :) Built with Node & Express.
+An application used by Ryd engineers to check my knowledge while reporting some issues :) Built with Node & Express.
 
 ---
 ## Features
